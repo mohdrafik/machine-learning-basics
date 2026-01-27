@@ -16,3 +16,9 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+# VS Code
+.vscode/
+
+# VS Code temporary notebook runner
+notebooks/tempCodeRunnerFile.ipynb
+**/tempCodeRunnerFile.ipynb
