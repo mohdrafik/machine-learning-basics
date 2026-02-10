@@ -8,6 +8,10 @@ __pycache__/
 env/
 *.env
 
+build/
+dist/
+*.egg-info/
+
 # Data
 data/
 results/
@@ -22,7 +26,6 @@ Thumbs.db
 # VS Code temporary notebook runner
 notebooks/tempCodeRunnerFile.ipynb
 **/tempCodeRunnerFile.ipynb
-project_strucure.png
 project_strucure.png
 notes/
 src/*.egg-info/
