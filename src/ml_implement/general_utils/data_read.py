@@ -138,6 +138,8 @@ class DataReader:
                 - If df_want=True: Prepend df to the above.
         """
         # 1. Get DataFrame, Features (X), and Target (y)
+        print(f"output of class in this order: df, X_train, X_test, y_train, y_test ")
+        print(f"target column: {self.target_column}")
         df, X, y = self.get_features_targets(target_column=self.target_column)
         
         # 2. Split data if requested (handled by train_test internally via self.split)
