@@ -20,5 +20,5 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["ml_implement", "ml_basics.*"]
+include = ["ml_implement", "ml_implement.*"]
 
