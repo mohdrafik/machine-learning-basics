@@ -141,7 +141,10 @@ class DataReader:
         print(f"output of class in this order: df, X_train, X_test, y_train, y_test ")
         print(f"target column: {self.target_column}")
         df, X, y = self.get_features_targets(target_column=self.target_column)
-        
+        if y.ndim == 1:
+            y = y.reshape(-1,1)
+        if X.ndim == 1:
+            X = X.reshape(-1,1)
         # 2. Split data if requested (handled by train_test internally via self.split)
         data_split = self.train_test(df, X, y, test_size=self.test_size, random_state=self.random_state)
         
