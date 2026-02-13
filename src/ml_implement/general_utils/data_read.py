@@ -39,6 +39,7 @@ class DataReader:
             user_input = input("Enter the target column name enter string value desired (or press Enter to use the last column): ").strip()
             if user_input:
                 self.target_column = user_input
+                print(f" Now Selected Target column ----> : {self.target_column}")
 
     def read_data(self):
         fullfilepath = self.filepath / self.filename
@@ -139,7 +140,7 @@ class DataReader:
         """
         # 1. Get DataFrame, Features (X), and Target (y)
         print(f"output of class in this order: df, X_train, X_test, y_train, y_test ")
-        print(f"target column: {self.target_column}")
+        print(f" Final Choosen Target column ----> : {self.target_column}")
         df, X, y = self.get_features_targets(target_column=self.target_column)
         if y.ndim == 1:
             y = y.reshape(-1,1)
