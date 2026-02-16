@@ -72,11 +72,27 @@ class UniversalPlotter:
     # ---------------------------------------------------------
     # DATA PROCESSING
     # ---------------------------------------------------------
-    def _process_data(self, data, x=None, y=None):
+    def _process_data(self, data=None, x=None, y=None, xdata=None, ydata=None):
         """
-        Converts input data into x_data and y_data.
+            Converts input data into x_data and y_data.
+            Supports:
+            - directly provided xdata & ydata
+            - DataFrame
+            - ndarray
+            - list/tuple
         """
 
+        # ---------------- Direct xdata/ydata ----------------
+        if xdata is not None and ydata is not None:
+            x_data = np.array(xdata).flatten()
+            y_data = np.array(ydata).flatten()
+
+            if len(x_data) != len(y_data):
+                raise ValueError(f"xdata and ydata must have same length. Got {len(x_data)} and {len(y_data)}")
+
+            return x_data, y_data
+
+        # ----------------Data: DataFrame ----------------
         if isinstance(data, pd.DataFrame):
             cols = list(data.columns)
 
@@ -102,7 +118,8 @@ class UniversalPlotter:
 
             return x_data, y_data
 
-        elif isinstance(data, np.ndarray):
+        # ----------------Data: NumPy array ----------------
+        if isinstance(data, np.ndarray):
             if data.ndim == 1:
                 x_data = np.arange(len(data))
                 y_data = data
@@ -114,20 +131,19 @@ class UniversalPlotter:
                 elif data.shape[0] == 2:
                     return data[0, :], data[1, :]
                 else:
-                    raise ValueError(
-                        f"2D array must be (N,2) or (2,N). Got {data.shape}"
-                    )
+                    raise ValueError(f"2D array must be (N,2) or (2,N). Got {data.shape}")
 
             else:
                 raise ValueError("Only 1D or 2D arrays supported.")
 
-        elif isinstance(data, (list, tuple)):
+        # ----------------Data: list / tuple ----------------
+        if isinstance(data, (list, tuple)):
             y_data = np.array(data)
             x_data = np.arange(len(y_data))
             return x_data, y_data
 
-        else:
-            raise ValueError("Unsupported data type.")
+        # ---------------- invalid ----------------
+        raise ValueError("Unsupported data type OR missing input. Provide either (data) or (xdata,ydata).")
 
     # ---------------------------------------------------------
     # 3D DATA PROCESSING
@@ -197,6 +213,8 @@ class UniversalPlotter:
         kind="line",
         x=None,
         y=None,
+        xdata=None,
+        ydata=None,
         label=None,
         color=None,
         marker=None,
@@ -222,8 +240,9 @@ class UniversalPlotter:
         - heatmap
         """
 
+
         # ---------------- Heatmap ----------------
-        if kind == "heatmap":
+        if kind.lower() == "heatmap":
             if isinstance(data, pd.DataFrame):
                 data_array = data.values
             elif isinstance(data, np.ndarray):
@@ -239,7 +258,8 @@ class UniversalPlotter:
             return fig, ax
 
         # ---------------- Normal 2D plots ----------------
-        x_data, y_data = self._process_data(data, x, y)
+
+        x_data, y_data = self._process_data(data=data, x=x, y=y, xdata=xdata, ydata=ydata)
         fig, ax = self._setup_axes(ax=ax, title=title, xlabel=xlabel, ylabel=ylabel)
 
         if kind == "line":
