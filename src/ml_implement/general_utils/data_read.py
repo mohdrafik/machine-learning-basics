@@ -22,7 +22,7 @@ class DataReader:
     def __init__(self, filepath, filename=None, filetype=None,target_column = None,split=False,df_want = False,test_size=None, random_state=None):
         self.filepath = Path(filepath)
         self.filename = filename
-        self.filetype = filetype if filetype else (filename.split('.')[-1] if filename else None)
+        self.filetype = filetype if filetype is not None else filename.split('.')[-1] 
         self.split = split  # default to False
         self.df_want = df_want 
         self.target_column = target_column if target_column else None 
@@ -160,13 +160,16 @@ class DataReader:
 if __name__=="__main__":
     # Resolve project root: src/ml_implement/general_utils/data_read.py -> ... -> project_root
     project_root = Path(__file__).resolve().parent.parent.parent.parent 
-    filepath = project_root / "data" / "Linear_Regression" / "chicago_houseprice"
+    # filepath = project_root / "data" / "Linear_Regression" / "chicago_houseprice"
+    filepath = project_root / "data" / "Linear_Regression" / "logistic_regressionData"
     
     print(f"📁 Reading data from: {filepath}")
-    filename = 'house_prices_dataset.csv'
+    filename = 'cancer_data.csv'
+    # filename = 'house_prices_dataset.csv'
     
     # Example: Wanting DataFrame and Train/Test Split, targeting 'price'
-    reader = DataReader(filepath=filepath, filename=filename, split=True, df_want=True, target_column="price")
+    # reader = DataReader(filepath=filepath, filename=filename, split=True, df_want=True, target_column="price")
+    reader = DataReader(filepath=filepath, filename=filename, split=True, df_want=True, target_column=None)
     
     try:
         df, X_train, X_test, y_train, y_test = reader.run()
