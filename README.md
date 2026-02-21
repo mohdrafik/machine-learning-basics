@@ -208,14 +208,14 @@ Each notebook demonstrates:
 ## ✅ Progress Checklist
 
 | Task | Status |
-|------|--------|
-| Set up repo & environment | x |
-| Complete preprocessing notebooks | ☐ |
-| Implement linear & logistic regression | ☐ |
-| Train Decision Trees & Random Forests | ☐ |
-| Implement K-Means & PCA | ☐ |
-| Finish all 3 mini projects | ☐ |
-| Final documentation & Git push | ☐ |
+|:---:|:---:|
+| Set up repo & environment | [x] |
+| Complete preprocessing notebooks | [ ] |
+| Implement linear & logistic regression | [ ] |
+| Train Decision Trees & Random Forests | [] |
+| Implement K-Means & PCA | [] |
+| Finish all 3 mini projects | [] |
+| Final documentation & Git push | [] |
 
 ---
 
