@@ -27,7 +27,7 @@ This repository focuses on:
 ## 📂 Repository Structure
 
 ```
-machine-learning-basics/
+machine-learning-basics/notebooks/
 │
 ├── 01_data_preprocessing/
 │   ├── normalization_standardization.ipynb
@@ -209,7 +209,7 @@ Each notebook demonstrates:
 
 | Task | Status |
 |------|--------|
-| Set up repo & environment | ☐ |
+| Set up repo & environment | x |
 | Complete preprocessing notebooks | ☐ |
 | Implement linear & logistic regression | ☐ |
 | Train Decision Trees & Random Forests | ☐ |
