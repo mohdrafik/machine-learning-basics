@@ -14,20 +14,26 @@ class DataReader:
         Includes a method to split data into train/test sets only if requested. Supports flexible target column selection.
         Keeps modular structure for reuse.
     Example usage:
-        reader = DataReader(filepath="data", filename="example.csv")
+        reader = DataReader(filepath="data", filename="example.csv",unsupData=False)
         df, X_train, X_test, y_train, y_test = reader.train_test(target_column="Label", split=True)
     
     """
 
-    def __init__(self, filepath, filename=None, filetype=None,target_column = None,split=False,df_want = False,test_size=None, random_state=None):
+    def __init__(self, filepath, filename=None, filetype=None,target_column = None,split=False,unsupData=False,df_want = False,test_size=None, random_state=None):
         self.filepath = Path(filepath)
         self.filename = filename
         self.filetype = filetype if filetype is not None else filename.split('.')[-1] 
         self.split = split  # default to False
-        self.df_want = df_want 
-        self.target_column = target_column if target_column else None 
-        self._get_target_column_interactively()
-        self.test_size = test_size if test_size else 0.2
+        self.df_want = df_want
+        self.unsupData = unsupData
+        if unsupData is False:
+            print(f"data is not supervised: so we need:target,split.")
+            self.target_column = target_column if target_column else None 
+            self._get_target_column_interactively()
+            self.test_size = test_size if test_size else 0.2
+        else:
+            print(f"data is UnSupervised: so we don't need:target,split.")
+
         self.random_state = random_state if random_state else 42
 
     
@@ -72,7 +78,9 @@ class DataReader:
                 df = df.splitlines()
                 print(f" Data:\n{df}")
             return df   
-
+        elif self.filetype =='.npy':
+            df = np.load(fullfilepath)
+            return df
         else:
             raise ValueError(f"Unsupported file type: {self.filetype}")
 
@@ -139,22 +147,28 @@ class DataReader:
                 - If df_want=True: Prepend df to the above.
         """
         # 1. Get DataFrame, Features (X), and Target (y)
-        print(f"output of class in this order: df, X_train, X_test, y_train, y_test ")
-        print(f" Final Choosen Target column ----> : {self.target_column}")
-        df, X, y = self.get_features_targets(target_column=self.target_column)
-        if y.ndim == 1:
-            y = y.reshape(-1,1)
-        if X.ndim == 1:
-            X = X.reshape(-1,1)
-        # 2. Split data if requested (handled by train_test internally via self.split)
-        data_split = self.train_test(df, X, y, test_size=self.test_size, random_state=self.random_state)
-        
-        # 3. Return results based on configuration
-        if self.df_want:
-            return (df,) + data_split
+        if self.unsupData is False:
+            print(f"output of class in this order: df, X_train, X_test, y_train, y_test ")
+            print(f" Final Choosen Target column ----> : {self.target_column}")
+            df, X, y = self.get_features_targets(target_column=self.target_column)
+            if y.ndim == 1:
+                y = y.reshape(-1,1)
+            if X.ndim == 1:
+                X = X.reshape(-1,1)
+            # 2. Split data if requested (handled by train_test internally via self.split)
+            data_split = self.train_test(df, X, y, test_size=self.test_size, random_state=self.random_state)
+                
+            # 3. Return results based on configuration
+            if self.df_want:
+                return (df,) + data_split
+            else:
+                return data_split
+        elif self.unsupData is True:
+            data = self.read_data()
+            
+            return data
         else:
-            return data_split
-
+            return print(f"dati e diversa tipo None:csv,txt,json,numpy,xls,xlsx,log")
 
 
 if __name__=="__main__":
