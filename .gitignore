@@ -30,3 +30,5 @@ project_strucure.png
 notes/
 src/*.egg-info/
 plots_output/
+C3_W1_KMeans_Assignment.ipynb
+notebooks/unsupervised_learning/C3_W1_KMeans_Assignment.ipynb
