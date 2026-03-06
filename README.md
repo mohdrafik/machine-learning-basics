@@ -2,8 +2,8 @@
 # 🧠 Machine Learning — Comprehensive Roadmap 
 
 Author: **Moh Rafik**  
-Duration: **Month 1 (Weeks 1–4)**  
-Learning Time: **6–7 hrs/day**  
+<!-- Duration: **Month 1 (Weeks 1–4)**  
+Learning Time: **6–7 hrs/day**   -->
 <!-- Goal: **Rebuild Machine Learning foundations with theory, implementation, and real-world mini-projects.** -->
 Goal: **Machine Learning foundations with theory, implementation, and real-world mini-projects.**
 ---
@@ -210,12 +210,12 @@ Each notebook demonstrates:
 | Task | Status |
 | :--- | :---: |
 | Set up repo & environment | ✅ |
-| Complete preprocessing notebooks | ☐ |
-| Implement linear & logistic regression | ☐ |
-| Train Decision Trees & Random Forests | ☐ |
-| Implement K-Means & PCA | ☐ |
-| Finish all 3 mini projects | ☐ |
-| Final documentation & Git push | ☐ |
+| Complete preprocessing notebooks | ✅ |
+| Implement linear & logistic regression | ✅ |
+| Train Decision Trees & Random Forests | ✅ |
+| Implement K-Means & PCA | ✅ |
+| Finish all 3 mini projects | ✅ |
+| Final documentation & Git push | ✅ |
 
 ---
 
