@@ -53,7 +53,7 @@ machine-learning-basics/notebooks/
 │   ├── house_price_prediction.ipynb
 │   ├── iris_classification.ipynb
 │   ├── customer_segmentation.ipynb
-│   ├── flower_type_classification.ipynb
+│   ├── flower_type_classification.ipynb📂 [flower_type_classification.ipynb](./notebooks/projects/flower_type_classification.ipynb)
 │
 │
 ├── assets/
