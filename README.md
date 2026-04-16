@@ -1,5 +1,5 @@
-<!-- # 🧠 Machine Learning Basics — Comprehensive Roadmap (Month 1) -->
-# 🧠 Machine Learning — Comprehensive Roadmap 
+<!-- # 🧠 Machine Learning Basics  -->
+# 🧠 Machine Learning — Comprehensive
 
 Author: **Moh Rafik**  
 <!-- Duration: **Month 1 (Weeks 1–4)**  
@@ -28,8 +28,8 @@ This repository focuses on:
 | 📂 Project | 🎯 Task | 🛠️ Tech Stack | 📓 Notebook |
 |-----------|---------|---------------|-------------|
 | **House Prices** | Regression | Scikit‑Learn, Pandas | 👉 [Open](notebook/projects/house_prices.ipynb) |
-| **Flower Classification** | Classification | TensorFlow, Keras | 👉 [Open](notebook/projects/flower_type_classification.ipynb) |
-| **Customer Segments** | Clustering | Matplotlib, Seaborn | 👉 [Open](notebook/projects/customer_segments.ipynb) |
+| **Flower Classification** | Classification | TensorFlow, Keras | 👉 [Open](notebooks/projects/flower_type_classification.ipynb) |
+| **Customer Segments** | Clustering | Matplotlib, Seaborn | 👉 [Open](notebooks/projects/customer_segmentation.ipynb) |
 
 ---
 
@@ -216,7 +216,7 @@ Each notebook demonstrates:
 
 ---
 
-## ✅ Progress Checklist
+<!-- ## ✅ Progress Checklist
 
 | Task | Status |
 | :--- | :---: |
@@ -226,12 +226,12 @@ Each notebook demonstrates:
 | Train Decision Trees & Random Forests | ✅ |
 | Implement K-Means & PCA | ✅ |
 | Finish all 3 mini projects | ✅ |
-| Final documentation & Git push | ✅ |
+| Final documentation & Git push | ✅ | -->
 
----
+<!-- --- -->
 
-**⭐ Pro Tip:**  
-Add visualizations, performance tables, and key insights in each notebook to make your repository interview-ready and attractive to recruiters.
+<!-- **⭐ Pro Tip:**  
+Add visualizations, performance tables, and key insights in each notebook to make your repository interview-ready and attractive to recruiters. -->
 
 ---
 
