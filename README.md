@@ -23,6 +23,15 @@ This repository focuses on:
 - Building end-to-end ML projects  
 
 ---
+## 🚀 Machine Learning Project Overview
+
+| 📂 Project | 🎯 Task | 🛠️ Tech Stack | 📓 Notebook |
+|-----------|---------|---------------|-------------|
+| **House Prices** | Regression | Scikit‑Learn, Pandas | 👉 [Open](notebook/projects/house_prices.ipynb) |
+| **Flower Classification** | Classification | TensorFlow, Keras | 👉 [Open](notebook/projects/flower_type_classification.ipynb) |
+| **Customer Segments** | Clustering | Matplotlib, Seaborn | 👉 [Open](notebook/projects/customer_segments.ipynb) |
+
+---
 
 ## 📂 Repository Structure
 
@@ -53,7 +62,7 @@ machine-learning-basics/notebooks/
 │   ├── house_price_prediction.ipynb
 │   ├── iris_classification.ipynb
 │   ├── customer_segmentation.ipynb
-│   ├── flower_type_classification.ipynb📂 [flower_type_classification.ipynb](./notebooks/projects/flower_type_classification.ipynb)
+│   ├── flower_type_classification.ipynb
 │
 │
 ├── assets/
